@@ -10,9 +10,37 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="Mystyle.css">
+  <script src="rdrawscript.js"></script>
     <!-- Custom styles for this template -->
   </head>
 
   <body>
-    
+    <div class="container">
+      <h1>RDraw</h1>
+      <ul id="colorpicker">
+      </ul>
+      <div class="text-center">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+      <label class="form-check-label" for="inlineRadio1">Thin</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+      <label class="form-check-label" for="inlineRadio2">Medium</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+        <label class="form-check-label" for="inlineRadio3">Thick</label>
+      </div>
+    </div>
+  </div>
+    <div class="text-center">
+    <canvas id="myCanvas" style="border:1px solid #000000;">
+    </canvas>
+         <ul id = "options">
+       <li class="optionsbut"> <button type="button" class="btn btn-success">Save Image Locally</button></li>
+       <li class="optionsbut"> <button type="button" class="btn btn-danger">Quit</button></li>
+      </ul>
+  </div>
+   
   </body>

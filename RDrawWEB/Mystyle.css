@@ -36,3 +36,15 @@ h1{
 .R{
 	margin-left: 5vw;
 }
+#myCanvas{
+	width:75vw;
+	height: 60vh;
+}
+#options{
+	list-style: none;
+
+
+}
+.optionsbut{
+	display:inline;
+}
