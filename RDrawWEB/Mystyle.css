@@ -5,3 +5,20 @@ h1{
 	font-size: 150px;
 	text-align: center;
 }
+
+#profile{
+	padding: 50px;
+	text-align: center;
+	/*background-color: #ffb000;*/
+}
+.myCOL{
+	background-color: #ffb000;
+	width: 40vw;
+}
+.aCOL{
+	width: 40vw;
+}
+#pencilPic{
+	max-height: 400px;
+
+}
