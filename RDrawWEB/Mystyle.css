@@ -12,8 +12,9 @@ h1{
 	/*background-color: #ffb000;*/
 }
 .myCOL{
-	background-color: #ffb000;
+	background-color: #d5908d;
 	width: 40vw;
+	margin-left: 4vw;
 }
 .aCOL{
 	width: 40vw;
@@ -24,4 +25,14 @@ h1{
 }
 #loadingBar{
 	margin-top: 10px;
+}
+.shortenlogo{
+	max-height: 350px;
+}
+#waitingJumbo{
+	padding: 0;
+	background-color: #f4ece6;
+}
+.R{
+	margin-left: 5vw;
 }
