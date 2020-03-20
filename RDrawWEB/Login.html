@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <title>Login Page</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./Login.js"></script>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
@@ -12,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="Mystyle.css">
     <!-- Custom styles for this template -->
   </head>
-  
+
   <body>
   	<div class="container">
   		<div class="jumbotron jumbotron-fluid">
@@ -20,9 +24,79 @@
   				<h1>RDraw</h1>
   			</div>
   		</div>
-  			<button type="button" class="btn btn-primary btn-lg btn-block">Login</button>
+        <a href="#myModal" class="btn btn-primary btn-lg btn-block" data-toggle="modal" onclick="openModal()">Login</a>
+
   			<button type="button" class="btn btn-primary btn-lg btn-block">Guest</button>
-  			<button type="button" class="btn btn-link btn-lg btn-block">Sign Up</button>
+        <a href="#mySignUpModal" class="btn btn-link btn-lg btn-block" data-toggle="modal" onclick="openModal()">Sign Up</a>
   	</div>
-  	
+
+    <!-- Modal HTML -->
+  	<div id="myModal" class="modal fade">
+  		<div class="modal-dialog modal-login">
+  			<div class="modal-content">
+  				<div class="modal-header">
+  					<div class="avatar">
+  						<img src="https://www.tutorialrepublic.com/examples/images/avatar.png" alt="Avatar">
+  					</div>
+  					<h4 class="modal-title">Login</h4>
+  					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  				</div>
+  				<div class="modal-body">
+  					<div class="form-group">
+  						<input type="text" class="form-control" name="firstName" placeholder="Username"
+  							required="required">
+  					</div>
+  					<div class="form-group">
+  						<input id="psw" type="password" class="form-control" name="password" placeholder="Password"
+  							required="required">
+  					</div>
+  					<div class="form-group">
+  						<button id="my_submit_button" class="btn btn-primary btn-block login-btn" disabled
+  							onClick="onClickFunction()">Login</button>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+
+    <div id="mySignUpModal" class="modal fade">
+  		<div class="modal-dialog modal-login">
+  			<div class="modal-content">
+  				<div class="modal-header">
+  					<div class="avatar">
+  						<img src="https://www.tutorialrepublic.com/examples/images/avatar.png" alt="Avatar">
+  					</div>
+  					<h4 class="modal-title">Sign Up page</h4>
+  					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  				</div>
+  				<div class="modal-body">
+  					<div class="form-group">
+  						<input type="text" class="form-control" name="firstName" placeholder="First Name"
+  							required="required">
+  					</div>
+  					<div class="form-group">
+  						<input type="text" class="form-control" name="lastName" placeholder="Last Name"
+  							required="required">
+  					</div>
+            <div class="form-group">
+  						<input type="text" class="form-control" name="lastName" placeholder="Username"
+  							required="required">
+  					</div>
+  					<div class="form-group">
+  						<input id="psw" type="password" class="form-control" name="password" placeholder="Password"
+  							required="required">
+  					</div>
+  					<div class="form-group">
+  						<input id="cpsw" type="password" class="form-control" name="confirm password"
+  							placeholder="Confirm Password" required="required">
+  					</div>
+  					<div class="form-group">
+  						<button id="my_submit_button" class="btn btn-primary btn-block login-btn" disabled
+  							onClick="onClickFunction()">Sign Up</button>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+
   </body>
