@@ -10,7 +10,6 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="Mystyle.css">
-  <script src="rdrawscript.js"></script>
     <!-- Custom styles for this template -->
   </head>
 
@@ -21,26 +20,35 @@
       </ul>
       <div class="text-center">
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick= "strokeWidth(value)">
       <label class="form-check-label" for="inlineRadio1">Thin</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick= "strokeWidth(value)">
       <label class="form-check-label" for="inlineRadio2">Medium</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onclick= "strokeWidth(value)">
         <label class="form-check-label" for="inlineRadio3">Thick</label>
       </div>
+        <button id="blue"  onclick = "color(id)"  style="background-color:blue; padding: 5px;"></button>
+        <button id="green" onclick = "color(id)" style="background-color:green; padding: 5px;"></button>
+        <button id="yellow" onclick = "color(id)" style="background-color:yellow; padding: 5px;"></button>
+        <button id="orange" onclick = "color(id)" style="background-color:orange; padding: 5px;"></button>
+        <button id="red"  onclick = "color(id)"  style="background-color:red; padding: 5px;"></button>
+        <button id="pink" onclick = "color(id)" style="background-color: pink; padding: 5px;"></button>
+        <button id="gold" onclick = "color(id)" style="background-color:goldenrod; padding: 5px;"></button>
+        <button id="black" onclick = "color(id)" style="background-color:black; padding: 5px;"></button>
+
     </div>
   </div>
     <div class="text-center">
-    <canvas id="myCanvas" style="border:1px solid #000000;">
+    <canvas id="myCanvas" width = "700px" height = "400px" style="border:1px solid #000000;">
     </canvas>
          <ul id = "options">
-       <li class="optionsbut"> <button type="button" class="btn btn-success">Save Image Locally</button></li>
+       <li class="optionsbut"> <button type="button" class="btn btn-success" onclick="save()">Save Image Locally</button></li>
        <li class="optionsbut"> <button type="button" class="btn btn-danger">Quit</button></li>
       </ul>
   </div>
-   
+   <script src="rdrawscript.js"></script>
   </body>
