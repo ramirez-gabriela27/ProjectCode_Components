@@ -1,2 +1,0 @@
-CREATE DATABASE user_info;
-CREATE DATABASE chats;
