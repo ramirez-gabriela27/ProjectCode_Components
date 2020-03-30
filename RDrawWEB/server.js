@@ -35,11 +35,20 @@ app.use(express.static(__dirname + '/'));//This line is necessary for us to use 
 //***************Below goes all of the code to load each individual site (reference lab 7)
 //example:
 
-// app.get('/register', function(req, res) {
-// 	res.render('pages/register',{
-// 		my_title:"Registration Page"
-// 	});
-// });
+app.get('/', function(req, res) {
+	res.render('pages/Login',{
+		local_css:"Mystyle.css",
+		my_title:"RDraw Login"
+	});
+});
+
+app.get('/drawroom', function(req, res) {
+	res.render('pages/drawroom',{
+		local_css:"Mystyle.css",
+		my_title:"RDraw Drawroom"
+	});
+});
+
 
 
 //server will run on this port
