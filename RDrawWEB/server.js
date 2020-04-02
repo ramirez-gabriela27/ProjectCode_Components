@@ -35,7 +35,23 @@ app.use(express.static(__dirname + '/'));//This line is necessary for us to use 
 //***************Below goes all of the code to load each individual site (reference lab 7)
 //example:
 
-app.get('/', function(req, res) {
+app.get('/Login/form', function(req, res) {
+	var first_name = req.body.firstName;
+	var last_name = req.body.lastName;
+	var user_name = req.body.userName;
+	var password = req.body.psw;
+
+	var insert_statement = "INSERT INTO User(last_name, first_name, user_name, password) VALUES('" + last_name + "','" +
+							first_name + "','" + user_name +"','" + password + "') ON CONFLICT DO NOTHING;";
+
+	db.task('get-everything', task => {
+        return task.batch([
+            task.any(insert_statement)
+        ]);
+    })
+});
+
+app.get('/Login', function(req, res) {
 	res.render('pages/Login',{
 		local_css:"Mystyle.css",
 		my_title:"RDraw Login"
