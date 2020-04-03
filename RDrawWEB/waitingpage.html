@@ -28,7 +28,7 @@
       </div>
           <div id = 'loadingBar'>
         <div class="w3-light-grey w3-round">
-          <div  id ="myBar" class="w3-container w3-round w3-blue" style="width:0%">Searching</div>
+          <div  id ="myBar" class="w3-container w3-round w3-blue" style="width:20%">Searching</div>
         </div>
         <!-- https://www.w3schools.com/w3css/w3css_progressbar.asp -->
       </div>
@@ -52,8 +52,8 @@
   <script>
 function move() {
   var elem = document.getElementById("myBar");  
-  elem.style.width = "0%"; 
-  var width = 0;
+  // elem.style.width = "20%"; 
+  var width = 20;
   var id = setInterval(frame, 40);
   function frame() {
     if (width >= 100) {
@@ -68,17 +68,8 @@ function move() {
   }
 
 }
-// function go(){
-// 	var elem = document.getElementById("myBar");  
-//   elem.style.width = 0; 
-//   width = elem.style.width;
-//   while(width < 100){
-//   	width++;
-//   	elem.style.width = width + '%';
-//   }
-// }
 </script>
-  <script>
+<!--   <script>
   	 // for (var i = 0; i <= 10; i++) {
   		// move();
   		var id = setInterval(move, 4000);
@@ -86,6 +77,6 @@ function move() {
   // }
 	// go();
 
-</script>
+</script> -->
 
   </body>
