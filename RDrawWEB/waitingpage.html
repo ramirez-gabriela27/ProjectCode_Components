@@ -57,7 +57,9 @@ function move() {
   var id = setInterval(frame, 40);
   function frame() {
     if (width >= 100) {
+
       clearInterval(id);
+      window.location.href = "drawroom.html";
       // elem.style.width = 0;
       // move();
     } else {
@@ -69,14 +71,11 @@ function move() {
 
 }
 </script>
-<!--   <script>
-  	 // for (var i = 0; i <= 10; i++) {
-  		// move();
-  		var id = setInterval(move, 4000);
-  		// move();
-  // }
-	// go();
+  <script>
 
-</script> -->
+  		// var id = setInterval(move, 4000);
+  		move();
+
+</script>
 
   </body>
