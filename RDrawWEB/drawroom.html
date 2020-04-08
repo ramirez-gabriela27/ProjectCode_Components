@@ -19,24 +19,49 @@
       <ul id="colorpicker">
       </ul>
       <div class="text-center">
+      <div class="container" style="float:middle;width:35%">
+      <h5>Pen:</h5>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick= "strokeWidth(value)">
+      <input type="color" id="pen_color" name="pen"
+           oninput="color_picker()">
+        <label for="head"> Color</label>
+      <br>
+      </div>
+      <br>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick= "strokeWidth(value); cursor_type(1)">
       <label class="form-check-label" for="inlineRadio1">Thin</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick= "strokeWidth(value)">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick= "strokeWidth(value); cursor_type(1)">
       <label class="form-check-label" for="inlineRadio2">Medium</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onclick= "strokeWidth(value)">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onclick= "strokeWidth(value); cursor_type(1)">
         <label class="form-check-label" for="inlineRadio3">Thick</label>
       </div>
-      <div class="form-check form-check-inline">
-        <input type="color" id="pen_color" name="pen"
-           oninput="color_picker()">
-        <label for="head">Pen Color</label>
       </div>
 
+      <div class="container" style="float:middle;width:35%">
+      <div class="form-check form-check-inline">
+      <div class="text-center">
+        <h5>Eraser:</h5>
+        <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="eraseroptions" id="thinerase" value="option1" onclick= "eraser_width(value); cursor_type(2)">
+        <label class="form-check-label" for="thinerase">Thin</label>
+        </div>
+        <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="eraseroptions" id="mederase" value="option2" onclick= "eraser_width(value); cursor_type(2)">
+        <lable class="form-check-label" for="mederase">Medium</label>
+        </div>
+        <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="eraseroptions" id="thiccerase" value="option3" onclick= "eraser_width(value); cursor_type(2)">
+
+        <label class="form-check-lable" for="thiccerase">Thicc</label>
+        </div>
+      </div>
+      </div>
+      </div>
     </div>
   </div>
     <div class="text-center">
@@ -45,6 +70,9 @@
          <ul id = "options">
        <li class="optionsbut"> <button type="button" class="btn btn-success" onclick="save()">Save Image Locally</button></li>
        <li class="optionsbut"> <button type="button" class="btn btn-danger">Quit</button></li>
+       <div class="form-check form-check-inline">
+         <button type="button" class="btn btn-danger" onclick="erase_canvas()">Erase Canvas</button>
+       </div>
        <!-- <li class="optionsbut"> <button type="button" class="btn btn-success">:)</button></li>
        <li class="optionsbut"> <button type="button" class="btn btn-danger">:(</button></li> -->
       </ul>

@@ -66,10 +66,50 @@ var x = "black",
 
 
     function color_picker(){
-        console.log("here");
         var current_color = document.getElementById("pen_color").value;
         console.log(current_color);
         x= current_color;
+    }
+
+    function erase_canvas(){
+      var canvas = document.getElementById("myCanvas");
+      var contents = document.getElementById("myCanvas").getContext('2d');
+      contents.clearRect(0,0,canvas.width,canvas.height);
+    }
+
+    function eraser_width(width){
+      x="white";
+      console.log(x);
+      switch(width){
+     		case "option1":
+     			y=1;
+     			break;
+     		case "option2":
+     			y=2;
+     			break;
+     		case "option3":
+     			y=5;
+     			break;
+     		default:
+     			y=2;
+     	}
+      console.log(y);
+    }
+
+    function cursor_type(type){
+      console.log(type);
+      if (type == 1) {
+
+      }
+      else if(type == 2)
+      {
+          
+      }
+      else
+      {
+      }
+      var curs =   document.getElementById("my_view").style.cursor;
+      console.log(curs);
     }
 
     function draw() {
