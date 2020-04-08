@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Draw Room</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="Mystyle.css">
+    <!-- Custom styles for this template -->
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>RDraw</h1>
+      <ul id="colorpicker">
+      </ul>
+      <div class="text-center">
+      <div class="container" style="float:middle;width:35%">
+      <h5>Pen:</h5>
+      <div class="form-check form-check-inline">
+      <input type="color" id="pen_color" name="pen"
+           oninput="color_picker()">
+        <label for="head"> Color</label>
+      <br>
+      </div>
+      <br>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick= "strokeWidth(value); cursor_type(1)">
+      <label class="form-check-label" for="inlineRadio1">Thin</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick= "strokeWidth(value); cursor_type(1)">
+      <label class="form-check-label" for="inlineRadio2">Medium</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onclick= "strokeWidth(value); cursor_type(1)">
+        <label class="form-check-label" for="inlineRadio3">Thick</label>
+      </div>
+      </div>
+
+      <div class="container" style="float:middle;width:35%">
+      <div class="form-check form-check-inline">
+      <div class="text-center">
+        <h5>Eraser:</h5>
+        <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="eraseroptions" id="thinerase" value="option1" onclick= "eraser_width(value); cursor_type(2)">
+        <label class="form-check-label" for="thinerase">Thin</label>
+        </div>
+        <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="eraseroptions" id="mederase" value="option2" onclick= "eraser_width(value); cursor_type(2)">
+        <lable class="form-check-label" for="mederase">Medium</label>
+        </div>
+        <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="eraseroptions" id="thiccerase" value="option3" onclick= "eraser_width(value); cursor_type(2)">
+
+        <label class="form-check-lable" for="thiccerase">Thicc</label>
+        </div>
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+    <div class="text-center">
+    <canvas id="myCanvas" width = "700px" height = "400px" style="border:1px solid #000000;">
+    </canvas>
+         <ul id = "options">
+       <li class="optionsbut"> <button type="button" class="btn btn-success" onclick="save()">Save Image Locally</button></li>
+       <li class="optionsbut"> <button type="button" class="btn btn-danger">Quit</button></li>
+       <div class="form-check form-check-inline">
+         <button type="button" class="btn btn-danger" onclick="erase_canvas()">Erase Canvas</button>
+       </div>
+       <!-- <li class="optionsbut"> <button type="button" class="btn btn-success">:)</button></li>
+       <li class="optionsbut"> <button type="button" class="btn btn-danger">:(</button></li> -->
+      </ul>
+  </div>
+  <button class="open-button" onclick="openForm()">Chat</button>
+
+  <div class="chat-popup" id="myForm">
+    <form action="chat.php" class="form-container" method="POST">
+    <h2>Chat</h2>
+
+    <form action="chat.php" class="form-container" method="POST">
+    <label for="msg"><b>Message</b></label>
+    <textarea placeholder="Type message.." input type = "text" name="msg" required></textarea>
+    <button type="submit" class="btn" onclick = "sendForm()">Send</button>
+    </form>
+
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+   <script src="rdrawscript.js"></script>
+  </body>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Waiting Page</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="Mystyle.css">
+
+    <!-- Custom styles for this template -->
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid" id ="waitingJumbo">
+        <div class="container">
+          <!-- <h1>RDraw</h1> -->
+          <div class="text-center">
+            <img class ="shortenlogo" src="img/CSCI_3308_logo.png" alt="logo">
+          </div>
+          <div id = "gallery">
+            <!-- add images here or write a function to fill in images -->
+          </div>
+        </div>
+      </div>
+          <div id = 'loadingBar'>
+        <div class="w3-light-grey w3-round">
+          <div  id ="myBar" class="w3-container w3-round w3-blue" style="width:20%">Searching</div>
+        </div>
+        <!-- https://www.w3schools.com/w3css/w3css_progressbar.asp -->
+      </div>
+
+      <div class="text-center">
+      <div class="row" >
+        <div class =".col border myCOL " >
+          <div id= "profile">
+            <h2>Profile</h2>
+            <button type="button" class="btn btn-link btn-lg btn-block">Edit</button>
+          </div>
+        </div>
+        <div class =".col border bg-light aCOL">
+          <div id ="favorite">
+          <img  id= "pencilPic" src="img/drawingblack.png" alt = "pencil drawing">
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <script>
+function move() {
+  var elem = document.getElementById("myBar");  
+  // elem.style.width = "20%"; 
+  var width = 20;
+  var id = setInterval(frame, 40);
+  function frame() {
+    if (width >= 100) {
+
+      clearInterval(id);
+      window.location.href = "drawroom.html";
+      // elem.style.width = 0;
+      // move();
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+      // elem.innerHTML = width * 1  + '%';
+    }
+  }
+
+}
+</script>
+  <script>
+
+  		// var id = setInterval(move, 4000);
+  		move();
+
+</script>
+
+  </body>
