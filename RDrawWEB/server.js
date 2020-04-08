@@ -14,8 +14,16 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 //database connection******************
 var pgp = require('pg-promise')();
 
+// const dbConfig = {
+// 	host: '98.245.162.1',
+// 	port: 5432,
+// 	database: 'user_info',
+// 	user: 'postgres',
+// 	password: 'rdraw'
+// };
+
 const dbConfig = {
-	host: '98.245.162.1',
+	host: 'localhost',
 	port: 5432,
 	database: 'user_info',
 	user: 'postgres',
@@ -36,21 +44,21 @@ app.use(express.static(__dirname + '/'));//This line is necessary for us to use 
 //example:
 
 app.get('/Login', function(req, res) {
-	res.render('Login',{
+	res.render('pages/Login',{
 		local_css:"Mystyle.css",
 		my_title:"RDraw Login"
 	});
 });
 
 app.get('/drawroom', function(req, res) {
-	res.render('drawroom',{
+	res.render('pages/drawroom',{
 		local_css:"Mystyle.css",
 		my_title:"RDraw Drawroom"
 	});
 });
 
 app.get('/waitingpage', function(req, res) {
-	res.render('waitingpage',{
+	res.render('pages/waitingpage',{
 		local_css:"Mystyle.css",
 		my_title:"RDraw Drawroom"
 	});
