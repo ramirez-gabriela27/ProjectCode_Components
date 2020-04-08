@@ -51,20 +51,20 @@
   </div>
   <script>
 function move() {
-  var elem = document.getElementById("myBar");  
-  // elem.style.width = "20%"; 
+  var elem = document.getElementById("myBar");
+  // elem.style.width = "20%";
   var width = 20;
   var id = setInterval(frame, 40);
   function frame() {
     if (width >= 100) {
 
       clearInterval(id);
-      window.location.href = "drawroom.html";
+      window.location.href = "drawroom";
       // elem.style.width = 0;
       // move();
     } else {
-      width++; 
-      elem.style.width = width + '%'; 
+      width++;
+      elem.style.width = width + '%';
       // elem.innerHTML = width * 1  + '%';
     }
   }
