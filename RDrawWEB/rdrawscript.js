@@ -44,13 +44,13 @@
         dot_flag = false;
 var x = "black",
         y = 2;
-    
+
 
         canvas = document.getElementById('myCanvas');
         ctx = canvas.getContext("2d");
         w = canvas.width;
         h = canvas.height;
-    
+
         canvas.addEventListener("mousemove", function (e) {
             findxy('move', e)
         }, false);
@@ -63,8 +63,8 @@ var x = "black",
         canvas.addEventListener("mouseout", function (e) {
             findxy('out', e)
         }, false);
-   
-    
+
+
     function color(obj) {
         switch (obj) {
             case "green":
@@ -95,9 +95,9 @@ var x = "black",
             	x="goldenrod";
             	break;
         }
-    
+
     }
-    
+
     function draw() {
     	// console.log("draw")
         ctx.beginPath();
@@ -110,7 +110,7 @@ var x = "black",
         ctx.stroke();
         ctx.closePath();
     }
-    
+
     // function erase() {
     //     var m = confirm("Want to clear");
     //     if (m) {
@@ -118,14 +118,14 @@ var x = "black",
     //         document.getElementById("canvasimg").style.display = "none";
     //     }
     // }
-    
+
     function save() {
         document.getElementById("myCanvas").style.border = "2px solid";
         var dataURL = canvas.toDataURL();
         document.getElementById("myCanvas").src = dataURL;
         document.getElementById("myCanvas").style.display = "inline";
     }
-    
+
     function findxy(res, e) {
     	// console.log("finding");
         if (res == 'down') {
@@ -134,7 +134,7 @@ var x = "black",
             currX = e.clientX - canvas.offsetLeft;
             currY = e.clientY - canvas.offsetTop;
             console.log(currY);
-    
+
             flag = true;
             dot_flag = true;
             if (dot_flag) {
@@ -182,4 +182,8 @@ function openForm() {
 
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
+}
+
+function sendForm(){
+  var x = document.getElementById("myForm").action;
 }
