@@ -65,37 +65,11 @@ var x = "black",
         }, false);
 
 
-    function color(obj) {
-        switch (obj) {
-            case "green":
-                x = "green";
-                break;
-            case "blue":
-                x = "blue";
-                break;
-            case "red":
-                x = "red";
-                break;
-            case "yellow":
-                x = "yellow";
-                break;
-            case "orange":
-                x = "orange";
-                break;
-            case "black":
-                x = "black";
-                break;
-            case "red":
-                x = "red";
-                break;
-            case "pink":
-            	x= "pink";
-            	break;
-            case "gold":
-            	x="goldenrod";
-            	break;
-        }
-
+    function color_picker(){
+        console.log("here");
+        var current_color = document.getElementById("pen_color").value;
+        console.log(current_color);
+        x= current_color;
     }
 
     function draw() {

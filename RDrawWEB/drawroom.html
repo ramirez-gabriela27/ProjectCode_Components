@@ -31,14 +31,11 @@
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onclick= "strokeWidth(value)">
         <label class="form-check-label" for="inlineRadio3">Thick</label>
       </div>
-        <button id="blue"  onclick = "color(id)"  style="background-color:blue; padding: 5px;"></button>
-        <button id="green" onclick = "color(id)" style="background-color:green; padding: 5px;"></button>
-        <button id="yellow" onclick = "color(id)" style="background-color:yellow; padding: 5px;"></button>
-        <button id="orange" onclick = "color(id)" style="background-color:orange; padding: 5px;"></button>
-        <button id="red"  onclick = "color(id)"  style="background-color:red; padding: 5px;"></button>
-        <button id="pink" onclick = "color(id)" style="background-color: pink; padding: 5px;"></button>
-        <button id="gold" onclick = "color(id)" style="background-color:goldenrod; padding: 5px;"></button>
-        <button id="black" onclick = "color(id)" style="background-color:black; padding: 5px;"></button>
+      <div class="form-check form-check-inline">
+        <input type="color" id="pen_color" name="pen"
+           oninput="color_picker()">
+        <label for="head">Pen Color</label>
+      </div>
 
     </div>
   </div>
