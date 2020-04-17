@@ -22,15 +22,17 @@ var pgp = require('pg-promise')();
 // 	password: 'rdraw'
 // };
 
-const dbConfig = {
-	host: 'localhost',
-	port: 5432,
-	database: 'user_info',
-	user: 'postgres',
-	password: 'rdraw'
-};
+//const dbConfig = {
+//	host: 'localhost',
+//	port: 5432,
+//	database: 'user_info',
+//	user: 'postgres',
+//	password: 'rdraw'
+//};
 
-var db = pgp(dbConfig);
+//var db = pgp(dbConfig);
+
+const dbConfig = process.env.DATABASE_URL;
 //**************************************
 
 
@@ -86,5 +88,8 @@ app.get('/Login/form', function(req, res) {
 //server will run on this port
 // app.listen(3000);
 // console.log("listening on port 3000");
-const port = process.env.PORT || 4000;
-app.listen(port);
+//const port = process.env.PORT || 4000;
+//app.listen(port);
+//app.listen(3000);
+app.listen(process.env.PORT);
+											
