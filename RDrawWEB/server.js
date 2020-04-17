@@ -84,5 +84,7 @@ app.get('/Login/form', function(req, res) {
 
 
 //server will run on this port
-app.listen(3000);
-console.log("listening on port 3000");
+// app.listen(3000);
+// console.log("listening on port 3000");
+const port = process.env.PORT || 4000;
+app.listen(port);
