@@ -45,7 +45,7 @@ app.use(express.static(__dirname + '/'));//This line is necessary for us to use 
 //***************Below goes all of the code to load each individual site (reference lab 7)
 //example:
 
-app.get('/Login', function(req, res) {
+app.get('/', function(req, res) {
 	res.render('pages/Login',{
 		local_css:"Mystyle.css",
 		my_title:"RDraw Login"
@@ -92,4 +92,3 @@ app.get('/Login/form', function(req, res) {
 //app.listen(port);
 //app.listen(3000);
 app.listen(process.env.PORT);
-											
