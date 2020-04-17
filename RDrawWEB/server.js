@@ -22,13 +22,13 @@ var pgp = require('pg-promise')();
 // 	password: 'rdraw'
 // };
 
-const dbConfig = {
-	host: 'localhost',
-	port: 5432,
-	database: 'user_info',
-	user: 'postgres',
-	password: 'rdraw'
-};
+// const dbConfig = {
+// 	host: 'localhost',
+// 	port: 5432,
+// 	database: 'user_info',
+// 	user: 'postgres',
+// 	password: 'rdraw'
+// };
 
 var db = pgp(dbConfig);
 //**************************************
@@ -43,7 +43,7 @@ app.use(express.static(__dirname + '/'));//This line is necessary for us to use 
 //***************Below goes all of the code to load each individual site (reference lab 7)
 //example:
 
-app.get('/Login', function(req, res) {
+app.get('/', function(req, res) {
 	res.render('pages/Login',{
 		local_css:"Mystyle.css",
 		my_title:"RDraw Login"
@@ -64,7 +64,7 @@ app.get('/waitingpage', function(req, res) {
 	});
 });
 
-app.get('/Login/form', function(req, res) {
+app.post('/Login/form', function(req, res) {
 	var first_name = req.body.firstName;
 	var last_name = req.body.lastName;
 	var user_name = req.body.userName;
@@ -78,11 +78,29 @@ app.get('/Login/form', function(req, res) {
             task.any(insert_statement)
         ]);
     })
+		.then(info => {
+    	res.render('pages/Login',{
+				local_css:"Mystyle.css",
+				my_title: "RDraw Login"
+			})
+    })
+    .catch(err => {
+        // display error message in case an error
+            console.log('error', err);
+            response.render('pages/Login', {
+							local_css:"Mystyle.css",
+							my_title: "RDraw Login"
+            })
+    });
 });
 
 
 
 
+
 //server will run on this port
-app.listen(3000);
-console.log("listening on port 3000");
+//app.listen(3000);
+// console.log("listening on port 3000");
+const port = process.env.PORT || 4000;
+app.listen(port);
+console.log("listening on port 4000");

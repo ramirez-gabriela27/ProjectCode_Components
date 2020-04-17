@@ -45,6 +45,8 @@
 var x = "black",
         y = 2;
 
+        var current_color ="black";
+
 
         canvas = document.getElementById('myCanvas');
         ctx = canvas.getContext("2d");
@@ -66,11 +68,29 @@ var x = "black",
 
 
     function color_picker(){
-        var current_color = document.getElementById("pen_color").value;
-        console.log(current_color);
+        current_color = document.getElementById("pen_color").value;
+        //console.log(current_color);
         x= current_color;
     }
 
+    function draw_circle(){
+      var canvas = document.getElementById("myCanvas");
+      //console.log(canvas);
+      if (canvas.getContext('2d')) {
+          var ctx = canvas.getContext('2d');
+          ctx.beginPath();
+          ctx.moveTo(prevX, prevY);
+          //console.log(prevX);
+          //console.log(prevY);
+          var radius = 20; // Arc radius
+          var startAngle = 0; // Starting point on circle
+          var endAngle = Math.PI + (Math.PI * 2) / 2; // End point on circle
+          var anticlockwise = 4 % 2 !== 0; // clockwise or anticlockwise
+          ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+          ctx.stroke();
+          ctx.closePath();
+        }
+    }
     function erase_canvas(){
       var canvas = document.getElementById("myCanvas");
       var contents = document.getElementById("myCanvas").getContext('2d');
@@ -79,37 +99,52 @@ var x = "black",
 
     function eraser_width(width){
       x="white";
-      console.log(x);
+      //console.log(x);
       switch(width){
      		case "option1":
      			y=1;
      			break;
      		case "option2":
-     			y=2;
+     			y=4;
      			break;
      		case "option3":
-     			y=5;
+     			y=8;
      			break;
      		default:
      			y=2;
      	}
-      console.log(y);
+      //console.log(y);
     }
 
+    function fill_canvas(){
+      var canvas = document.getElementById("myCanvas");
+      var contents = document.getElementById("myCanvas").getContext('2d');
+      contents.rect(0,0,1601.98,801.98);
+      contents.fillStyle = current_color;
+      contents.fill();
+    }
     function cursor_type(type){
       console.log(type);
-      if (type == 1) {
 
+      if (type == 1) {
+        document.getElementById("cursor_style").style.cursor = "cursor:url(img/brush.png),auto";
       }
+<<<<<<< HEAD
       else if(type == 2)
       {
 
       }
       else
       {
+=======
+      else if (type == 2) {
+        document.getElementById("cursor_style").style.cursor = "cursor:url(img/eraser.png),auto";
+        console.log("here");
+>>>>>>> 57f430bc40189b68540f9c6da9f661b0f70687c9
       }
-      var curs =   document.getElementById("my_view").style.cursor;
-      console.log(curs);
+      var currrent_cursor = document.getElementById("cursor_style").style.cursor;
+      console.log(currrent_cursor);
+
     }
 
     function draw() {
@@ -118,9 +153,9 @@ var x = "black",
         ctx.moveTo(prevX, prevY);
         ctx.lineTo(currX, currY);
         ctx.strokeStyle = x;
-        console.log(ctx.strokeStyle);
+        //console.log(ctx.strokeStyle);
         ctx.lineWidth = y;
-        console.log(ctx.lineWidth);
+      //console.log(ctx.lineWidth);
         ctx.stroke();
         ctx.closePath();
     }
@@ -147,7 +182,7 @@ var x = "black",
             prevY = currY;
             currX = e.clientX - canvas.offsetLeft;
             currY = e.clientY - canvas.offsetTop;
-            console.log(currY);
+            //console.log(currY);
 
             flag = true;
             dot_flag = true;
@@ -174,15 +209,16 @@ var x = "black",
     }
 
    function strokeWidth(val){
+     x=current_color;
    	switch(val){
    		case "option1":
    			y=1;
    			break;
    		case "option2":
-   			y=2;
+   			y=4;
    			break;
    		case "option3":
-   			y=5;
+   			y=8;
    			break;
    		default:
    			y=2;

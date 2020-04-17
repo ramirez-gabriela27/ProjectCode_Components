@@ -1,17 +1,62 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <style>
+    * {
+      box-sizing: border-box;
+      }
+      .column_1 {
+        float: left;
+        width: 200px;
+        height: 200px;
+        padding: 0px;
+        padding-top: 300px;
+      }
+      .column_2{
+        float: left;
+        width: 1350px;
+        padding: 5px;
+        padding-top: 100px;
+      }
+      .column_3{
+        float: left;
+        width: 200px;
+        height: 200px;
+        padding: 5px;
+        padding-top: 280px;
+        padding-left: 260px;
+      }
+      .row_header{
+        width: 800px;
+        float: center;
+      }
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      label{
+        color : #BF4D4D;
+      }
+      h5{
+        color : #BF4D4D;
+      }
+      h1{
+        width: 500px;
+        height: 200px;
+      }
+    </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <title>Draw Room</title>
-
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 	<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="Mystyle.css">
     <!-- Custom styles for this template -->
   </head>
+<<<<<<< HEAD
 
   <body>
     <onload="setInterval('chat.update()', 1000)">
@@ -20,65 +65,71 @@
       <ul id="colorpicker">
       </ul>
       <div class="text-center">
+=======
+  <body style="background-color:#F4ECE6;">
+      <span id="cursor_style" style="cursor:url(img/brush.png),auto">
+      <div class="column_1">
+>>>>>>> 57f430bc40189b68540f9c6da9f661b0f70687c9
       <div class="container" style="float:middle;width:35%">
-      <h5>Pen:</h5>
-      <div class="form-check form-check-inline">
+      <h2>Pen:</h2>
       <input type="color" id="pen_color" name="pen"
            oninput="color_picker()">
-        <label for="head"> Color</label>
-      <br>
-      </div>
       <br>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick= "strokeWidth(value); cursor_type(1)">
-      <label class="form-check-label" for="inlineRadio1">Thin</label>
+      <label class="form-check-label" for="inlineRadio1"><h4>Thin</h4></label>
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick= "strokeWidth(value); cursor_type(1)">
-      <label class="form-check-label" for="inlineRadio2">Medium</label>
+      <label class="form-check-label" for="inlineRadio2"><h4>Medium</h4></label>
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onclick= "strokeWidth(value); cursor_type(1)">
-        <label class="form-check-label" for="inlineRadio3">Thick</label>
+        <label class="form-check-label" for="inlineRadio3"><h4>Thick</h4></label>
       </div>
       </div>
-
+      <br>
       <div class="container" style="float:middle;width:35%">
-      <div class="form-check form-check-inline">
       <div class="text-center">
-        <h5>Eraser:</h5>
+        <h2>Eraser</h2>
         <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="eraseroptions" id="thinerase" value="option1" onclick= "eraser_width(value); cursor_type(2)">
-        <label class="form-check-label" for="thinerase">Thin</label>
+        <label class="form-check-label" for="thinerase"><h4>Thin</h4></label>
         </div>
         <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="eraseroptions" id="mederase" value="option2" onclick= "eraser_width(value); cursor_type(2)">
-        <lable class="form-check-label" for="mederase">Medium</label>
+        <label class="form-check-label" for="mederase"><h4>Medium</h4></label>
         </div>
         <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="eraseroptions" id="thiccerase" value="option3" onclick= "eraser_width(value); cursor_type(2)">
-
-        <label class="form-check-lable" for="thiccerase">Thicc</label>
+        <label class="form-check-lable" for="thiccerase"><h4>Thicc</h4></label>
         </div>
       </div>
       </div>
+      <br>
+      <ul id = "options">
+        <li class="optionsbut"> <button style="background-color: #1F284D;border-color: #1F284D color:white;" type="button" class="btn btn-success" onclick="fill_canvas()">Fill Option</button></li>
+        <li class="optionsbut"> <button style="background-color: #1F284D;border-color: #1F284D color:white;" type="button" class="btn btn-success" onclick="save()">Save Image Locally</button></li>
+        <li class="optionsbut"> <button  style="background-color: #1F284D;border-color: #1F284D color:white;"type="button" class="btn btn-danger">Quit</button></li>
+        <div class="form-check form-check-inline">
+          <button style="background-color: #1F284D;border-color: #1F284D color:white;" type="button" class="btn btn-danger" onclick="erase_canvas()">Erase Canvas</button>
+        </div>
+      </ul>
+    </div>
+    <div class="column_2">
+    <div class="text-center">
+    <canvas id="myCanvas" width = "1600px" height = "800px" style="border:1px solid #000000; background-color:white;">
+    </canvas>
+    </div>
+    </div>
+    <div class="column_3">
+      <div class="text-center">
+      <div class="form-check form-check-inline">
+            <img src="img/CSCI_3308_logo.png" width="300" height="300" alt="logo_f">
+      </div>
       </div>
     </div>
-  </div>
-    <div class="text-center">
-    <canvas id="myCanvas" width = "700px" height = "400px" style="border:1px solid #000000;">
-    </canvas>
-         <ul id = "options">
-       <li class="optionsbut"> <button type="button" class="btn btn-success" onclick="save()">Save Image Locally</button></li>
-       <li class="optionsbut"> <button type="button" class="btn btn-danger">Quit</button></li>
-       <div class="form-check form-check-inline">
-         <button type="button" class="btn btn-danger" onclick="erase_canvas()">Erase Canvas</button>
-       </div>
-       <!-- <li class="optionsbut"> <button type="button" class="btn btn-success">:)</button></li>
-       <li class="optionsbut"> <button type="button" class="btn btn-danger">:(</button></li> -->
-      </ul>
-  </div>
-  <button class="open-button" onclick="openForm()">Chat</button>
+  <button style="background-color: #1F284D;border-color: #1F284D color:white;" class="open-button" onclick="openForm()">Chat</button>
 
   <div class="chat-popup" id="myForm">
     <form action="chat.php" class="form-container" method="POST">
@@ -87,14 +138,19 @@
     <form action="/RDrawWEB/views/pages/chat.php" class="form-container" method="POST">
     <label for="msg"><b>Message</b></label>
     <textarea placeholder="Type message.." input type = "text" name="msg" required></textarea>
-    <button type="submit" class="btn" onclick = "sendForm()">Send</button>
+    <button style="background-color: #1F284D;border-color: #1F284D color:white;" type="submit" class="btn" onclick = "sendForm()">Send</button>
     </form>
 
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    <button  type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
+<<<<<<< HEAD
 
 </div>
+=======
+</span>
+
+>>>>>>> 57f430bc40189b68540f9c6da9f661b0f70687c9
    <script src="rdrawscript.js"></script>
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 
