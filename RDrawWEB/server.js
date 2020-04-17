@@ -30,7 +30,9 @@ var pgp = require('pg-promise')();
 // 	password: 'rdraw'
 // };
 
-var db = pgp(dbConfig);
+//var db = pgp(dbConfig);
+
+const dbConfig = process.env.DATABASE_URL;
 //**************************************
 
 
@@ -64,7 +66,7 @@ app.get('/waitingpage', function(req, res) {
 	});
 });
 
-app.post('/Login/form', function(req, res) {
+app.get('/Login/form', function(req, res) {
 	var first_name = req.body.firstName;
 	var last_name = req.body.lastName;
 	var user_name = req.body.userName;
@@ -78,20 +80,20 @@ app.post('/Login/form', function(req, res) {
             task.any(insert_statement)
         ]);
     })
-		.then(info => {
-    	res.render('pages/Login',{
-				local_css:"Mystyle.css",
-				my_title: "RDraw Login"
-			})
-    })
-    .catch(err => {
-        // display error message in case an error
-            console.log('error', err);
-            response.render('pages/Login', {
-							local_css:"Mystyle.css",
-							my_title: "RDraw Login"
-            })
-    });
+	// 	.then(info => {
+    // 	res.render('pages/Login',{
+	// 			local_css:"Mystyle.css",
+	// 			my_title: "RDraw Login"
+	// 		})
+    // })
+    // .catch(err => {
+    //     // display error message in case an error
+    //         console.log('error', err);
+    //         response.render('pages/Login', {
+	// 						local_css:"Mystyle.css",
+	// 						my_title: "RDraw Login"
+    //         })
+    // });
 });
 
 
