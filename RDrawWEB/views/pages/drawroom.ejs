@@ -56,9 +56,20 @@
 	<link rel="stylesheet" type="text/css" href="Mystyle.css">
     <!-- Custom styles for this template -->
   </head>
+<<<<<<< HEAD
+
+  <body>
+    <onload="setInterval('chat.update()', 1000)">
+    <div class="container">
+      <h1>RDraw</h1>
+      <ul id="colorpicker">
+      </ul>
+      <div class="text-center">
+=======
   <body style="background-color:#F4ECE6;">
       <span id="cursor_style" style="cursor:url(img/brush.png),auto">
       <div class="column_1">
+>>>>>>> 57f430bc40189b68540f9c6da9f661b0f70687c9
       <div class="container" style="float:middle;width:35%">
       <h2>Pen:</h2>
       <input type="color" id="pen_color" name="pen"
@@ -124,7 +135,7 @@
     <form action="chat.php" class="form-container" method="POST">
     <h2>Chat</h2>
 
-    <form action="chat.php" class="form-container" method="POST">
+    <form action="/RDrawWEB/views/pages/chat.php" class="form-container" method="POST">
     <label for="msg"><b>Message</b></label>
     <textarea placeholder="Type message.." input type = "text" name="msg" required></textarea>
     <button style="background-color: #1F284D;border-color: #1F284D color:white;" type="submit" class="btn" onclick = "sendForm()">Send</button>
@@ -133,7 +144,74 @@
     <button  type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
+<<<<<<< HEAD
+
+</div>
+=======
 </span>
 
+>>>>>>> 57f430bc40189b68540f9c6da9f661b0f70687c9
    <script src="rdrawscript.js"></script>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+
+   <script>
+
+  // ask user for name with popup prompt
+  var name = prompt("Enter your chat name:", "Guest");
+
+  // default name is 'Guest'
+  if (!name || name === ' ') {
+    name = "Guest";
+  }
+
+  // strip tags
+  name = name.replace(/(<([^>]+)>)/ig,"");
+
+  // display name on page
+  $("#name-area").html("You are: <span>" + name + "</span>");
+
+  // kick off chat
+  var chat =  new Chat();
+
+  $(function() {
+
+     chat.getState();
+
+     // watch textarea for key presses
+     $("#sendie").keydown(function(event) {
+
+         var key = event.which;
+
+         //all keys including return.
+         if (key >= 33) {
+
+             var maxLength = $(this).attr("maxlength");
+             var length = this.value.length;
+
+             // don't allow new content if length is maxed out
+             if (length >= maxLength) {
+                 event.preventDefault();
+             }
+         }
+                                                                                                     });
+     // watch textarea for release of key press
+     $('#sendie').keyup(function(e) {
+
+        if (e.keyCode == 13) {
+
+              var text = $(this).val();
+              var maxLength = $(this).attr("maxlength");
+              var length = text.length;
+
+              // send
+              if (length <= maxLength + 1) {
+                chat.send(text, name);
+                $(this).val("");
+              } else {
+                $(this).val(text.substring(0, maxLength));
+              }
+        }
+     });
+  });
+</script>
   </body>

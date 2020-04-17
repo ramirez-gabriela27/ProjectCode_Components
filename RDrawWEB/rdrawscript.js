@@ -129,9 +129,18 @@ var x = "black",
       if (type == 1) {
         document.getElementById("cursor_style").style.cursor = "cursor:url(img/brush.png),auto";
       }
+<<<<<<< HEAD
+      else if(type == 2)
+      {
+
+      }
+      else
+      {
+=======
       else if (type == 2) {
         document.getElementById("cursor_style").style.cursor = "cursor:url(img/eraser.png),auto";
         console.log("here");
+>>>>>>> 57f430bc40189b68540f9c6da9f661b0f70687c9
       }
       var currrent_cursor = document.getElementById("cursor_style").style.cursor;
       console.log(currrent_cursor);
@@ -227,4 +236,68 @@ function closeForm() {
 
 function sendForm(){
   var x = document.getElementById("myForm").action;
+}
+
+function Chat () {
+    this.update = updateChat;
+    this.send = sendChat;
+    this.getState = getStateOfChat;
+}
+
+//gets the state of the chat
+function getStateOfChat() {
+	if(!instanse){
+		instanse = true;
+		$.ajax({
+			type: "POST",
+			url: "chat.php",
+			data: {'function': 'getState', 'file': file},
+			dataType: "json",
+			success: function(data) {state = data.state;instanse = false;}
+		});
+	}
+}
+
+//Updates the chat
+function updateChat() {
+	if(!instanse){
+		instanse = true;
+		$.ajax({
+			type: "POST",
+			url: "chat.php",
+			data: {'function': 'update','state': state,'file': file},
+			dataType: "json",
+			success: function(data) {
+				if(data.text){
+					for (var i = 0; i < data.text.length; i++) {
+						$('#chat-area').append($("
+
+						"+ data.text[i] +"
+
+						"));
+					}
+				}
+				document.getElementById('chat-area').scrollTop = document.getElementById('chat-area').scrollHeight;
+				instanse = false;
+				state = data.state;
+			}
+		});
+	}
+	else {
+		setTimeout(updateChat, 1500);
+	}
+}
+
+//send the message
+function sendChat(message, nickname) {
+	updateChat();
+	$.ajax({
+		type: "POST",
+		url: "chat.php",
+		data: {'function': 'send','message': message,'nickname': nickname,'file': file},
+		dataType: "json",
+		success: function(data){
+			updateChat();
+		}
+	});
 }
