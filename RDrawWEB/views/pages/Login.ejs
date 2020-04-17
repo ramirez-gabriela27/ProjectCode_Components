@@ -20,21 +20,19 @@
     <!-- Custom styles for this template -->
   </head>
 
-  <body style="background-color:#F4ECE6;">
-    <span id="cursor_style" style="cursor:url(img/brush.png),auto">
+  <body>
   	<div class="container">
-        <div class="text-center">
-        <div class="form-check form-check-inline">
-              <img src="img/CSCI_3308_logo.png" width="500" height="500" alt="logo_f">
-        </div>
+  		<div class="jumbotron jumbotron-fluid">
+  			<div class="container">
+  				<h1>RDraw</h1>
+  			</div>
+  		</div>
+        <a href="#myModal" class="btn btn-primary btn-lg btn-block" data-toggle="modal" onclick="openModal()">Login</a>
 
-        <a href="#myModal" class="btn btn-primary btn-lg btn-block" style="background-color: #1F284D;border-color: #1F284D color:white;" data-toggle="modal" onclick="openModal()">Login</a>
+        <a href="waitingpage" class="btn btn-primary btn-lg btn-block">Guest</a>
 
-        <a href="waitingpage" class="btn btn-primary btn-lg btn-block" style="background-color: #1F284D;border-color: #1F284D color:white;">Guest</a>
-
-        <a href="#mySignUpModal" class="btn btn-primary btn-lg btn-block" style="background-color: #1F284D;border-color: #1F284D color:white;" data-toggle="modal" onclick="openModal()">Sign Up</a>
-      </div>
-    </div>
+        <a href="#mySignUpModal" class="btn btn-link btn-lg btn-block" data-toggle="modal" onclick="openModal()">Sign Up</a>
+  	</div>
 
     <!-- Modal HTML -->
   	<div id="myModal" class="modal fade">
@@ -64,7 +62,7 @@
   		</div>
   	</div>
 
-    <form action="/Login/form" method="get">
+    <form action="/Login/form" method="post">
     <div id="mySignUpModal" class="modal fade">
   		<div class="modal-dialog modal-Login">
   			<div class="modal-content">
@@ -115,7 +113,6 @@
   		</div>
   	</div>
   </form>
-</span>
 
 
   </body>
