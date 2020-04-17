@@ -14,10 +14,11 @@
   </head>
 
   <body>
-    <div class="container">
+    <!--<div class="container">-->
       <h1>RDraw</h1>
       <ul id="colorpicker">
       </ul>
+      <div class="column">
       <div class="text-center">
       <div class="container" style="float:middle;width:35%">
       <h5>Pen:</h5>
@@ -45,7 +46,7 @@
       <div class="container" style="float:middle;width:35%">
       <div class="form-check form-check-inline">
       <div class="text-center">
-        <h5>Eraser:</h5>
+        <h5>Eraser</h5>
         <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="eraseroptions" id="thinerase" value="option1" onclick= "eraser_width(value); cursor_type(2)">
         <label class="form-check-label" for="thinerase">Thin</label>
@@ -62,8 +63,13 @@
       </div>
       </div>
       </div>
+      <div class="form-check form-check-inline">
+        <button type="button" class="btn btn-danger" onclick="draw_circle()"><img src="img/circle.png">Add Circle</button>
+      </div>
     </div>
-  </div>
+    </div>
+  <!--</div>-->
+    <div class="column">
     <div class="text-center">
     <canvas id="myCanvas" width = "700px" height = "400px" style="border:1px solid #000000;">
     </canvas>
@@ -76,7 +82,10 @@
        <!-- <li class="optionsbut"> <button type="button" class="btn btn-success">:)</button></li>
        <li class="optionsbut"> <button type="button" class="btn btn-danger">:(</button></li> -->
       </ul>
+    </div>
   </div>
+
+  <div class="column">
   <button class="open-button" onclick="openForm()">Chat</button>
 
   <div class="chat-popup" id="myForm">
@@ -91,6 +100,7 @@
 
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
+</div>
 </div>
    <script src="rdrawscript.js"></script>
   </body>
