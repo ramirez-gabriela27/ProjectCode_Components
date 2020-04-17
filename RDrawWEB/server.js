@@ -64,35 +64,35 @@ app.get('/waitingpage', function(req, res) {
 	});
 });
 
-app.post('/Login/form', function(req, res) {
-	var first_name = req.body.firstName;
-	var last_name = req.body.lastName;
-	var user_name = req.body.userName;
-	var password = req.body.psw;
-
-	var insert_statement = "INSERT INTO User(last_name, first_name, user_name, password) VALUES('" + last_name + "','" +
-							first_name + "','" + user_name +"','" + password + "') ON CONFLICT DO NOTHING;";
-
-	db.task('get-everything', task => {
-        return task.batch([
-            task.any(insert_statement)
-        ]);
-    })
-		.then(info => {
-    	res.render('pages/Login',{
-				local_css:"Mystyle.css",
-				my_title: "RDraw Login"
-			})
-    })
-    .catch(err => {
-        // display error message in case an error
-            console.log('error', err);
-            response.render('pages/Login', {
-							local_css:"Mystyle.css",
-							my_title: "RDraw Login"
-            })
-    });
-});
+// app.post('/Login/form', function(req, res) {
+// 	var first_name = req.body.firstName;
+// 	var last_name = req.body.lastName;
+// 	var user_name = req.body.userName;
+// 	var password = req.body.psw;
+//
+// 	var insert_statement = "INSERT INTO User(last_name, first_name, user_name, password) VALUES('" + last_name + "','" +
+// 							first_name + "','" + user_name +"','" + password + "') ON CONFLICT DO NOTHING;";
+//
+// 	db.task('get-everything', task => {
+//         return task.batch([
+//             task.any(insert_statement)
+//         ]);
+//     })
+// 		.then(info => {
+//     	res.render('pages/Login',{
+// 				local_css:"Mystyle.css",
+// 				my_title: "RDraw Login"
+// 			})
+//     })
+//     .catch(err => {
+//         // display error message in case an error
+//             console.log('error', err);
+//             response.render('pages/Login', {
+// 							local_css:"Mystyle.css",
+// 							my_title: "RDraw Login"
+//             })
+//     });
+// });
 
 
 
