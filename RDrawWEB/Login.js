@@ -94,11 +94,16 @@ function enableButton(letter, capital, number, length, match) {
     // TODO: Clear this function for students to implement
     var button = document.getElementById('my_submit_button');
     var condition = (letter.classList.value == "valid" && capital.classList.value == "valid" && number.classList.value == "valid" && length.classList.value == "valid" && match.classList.value == "valid"); // TODO: Replace false with the correct condition
+    console.log("letter =" + letter.classList.value);
+    console.log("capital =" + capital.classList.value);
+    console.log("number =" + number.classList.value);
+    console.log("length =" + length.classList.value);
+    console.log("match =" + match.classList.value);
+    console.log(condition);
     if(condition == true) {
-            button.disabled = false;
-        }
-    console.log(button.disabled);
+        button.disabled = false;
     }
+}
 
 
 function onClickFunction() {
