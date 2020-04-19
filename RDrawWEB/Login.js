@@ -74,8 +74,8 @@ function openModal() {
     /* TODO Question 1.3: Starts here */
     confirmMyInput.onkeyup = function() {
                 // Validate password and confirmPassword
-                //var passEqualsConfPass = (myInput.value == confirmMyInput.value); // TODO: Change this to the condition that needs to be checked so that the text entered in password equals the text in confirm password
-                if(myInput.value == confirmMyInput.value) {
+                var passEqualsConfPass = (myInput.value == confirmMyInput.value); // TODO: Change this to the condition that needs to be checked so that the text entered in password equals the text in confirm password
+                if(passEqualsConfPass) {
                     match.classList.remove("invalid");
                     match.classList.add("valid");
                 } else {
