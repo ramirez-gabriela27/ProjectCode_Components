@@ -166,6 +166,14 @@ var x = "black",
         document.getElementById("myCanvas").style.display = "inline";
     }
 
+    function set(url){
+      var img = new Image;
+        img.onload = function(){
+            ctx.drawImage(img,0,0); 
+        };
+        img.src = url;
+    }
+
     function findxy(res, e) {
     	// console.log("finding");
         if (res == 'down') {
