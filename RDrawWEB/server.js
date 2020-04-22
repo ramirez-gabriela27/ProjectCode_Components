@@ -52,6 +52,8 @@ app.get('/', function(req, res) {
 	});
 });
 
+
+
 app.post('/Login', function(req, res) {
 	var first_name = req.query.firstName;
 	var last_name = req.query.lastName;
@@ -60,6 +62,10 @@ app.post('/Login', function(req, res) {
 
 	var insert_statement = "INSERT INTO user_table(last_name, first_name, user_name, password) VALUES('" + last_name + "','" +
 							first_name + "','" + user_name +"','" + password + "') ON CONFLICT DO NOTHING;";
+
+  console.log('test hello');
+  console.log(first_name);
+  console.log(last_name);
 
 	console.log(insert_statement);
 	db.task('get-everything', task => {
