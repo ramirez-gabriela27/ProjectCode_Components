@@ -1,6 +1,5 @@
 /***********************
   Load Components!
-
   Express      - A Node.js Framework
   Body-Parser  - A tool to help use parse the data in a post request
   Pg-Promise   - A database tool to help use connect to our PostgreSQL database
@@ -37,7 +36,23 @@ const dbConfig = process.env.DATABASE_URL;
 var db = pgp(dbConfig);
 //**************************************
 
+var current_user_id = 4;
 
+function create_new_user_id(){
+    current_user_id = current_user_id+1;
+}
+
+var match = false;
+function check_password(pass_word1, pass_word2){
+		console.log(match);
+		if (pass_word1 == pass_word2) {
+				match = true;
+		}
+		else {
+				match = false;
+		}
+    return match;
+}
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/'));//This line is necessary for us to use relative paths and access our resources directory
@@ -77,12 +92,50 @@ app.get('/waitingpage', function(req, res) {
 	});
 });
 
+app.post('/Login/signin', function(req,res) {
+	var user_name = req.body.username;
+	var pass_word = req.body.password;
+
+	var search_for_pass_word = "select password from user_table where user_name = '" +  user_name + "';";
+
+	db.task('get-everything', task => {
+				return task.batch([
+						task.any(search_for_pass_word)
+				]);
+		})
+		.then(data => {
+			//console.log(search_for_pass_word);
+			var check = check_password(pass_word,data[0].search_for_pass_word);
+        if (check == true) {
+          res.render('pages/waitingpage',{
+  					local_css:"Mystyle.css",
+  					my_title: "RDraw Login"
+  				});
+        }
+				else {
+          alert("Password is incorrect. Please try again.");
+          res.render('pages/Login',{
+        		local_css:"Mystyle.css",
+        		my_title:"RDraw Login"
+        	});
+        }
+			})
+		.catch(err => {
+				// display error message in case an error
+				//request.flash('error', err);
+				res.render('pages/Login',{
+					local_css:"Mystyle.css",
+					my_title:"RDraw Login"
+				});
+		});
+});
 app.post('/Login/form', function(req, res) {
-	var user_id = 2;
+	create_new_user_id();
+	var user_id = current_user_id;
 	var first_name = req.body.firstName;
 	var last_name = req.body.lastName;
 	var user_name = req.body.userName;
-	var password = req.body.psw;
+	var password = req.body.password;
 
 	var insert_statement = "INSERT INTO user_table(user_id, last_name, first_name, user_name, password) VALUES("+ user_id + ",'" + last_name + "','" +
 							first_name + "','" + user_name + "','" + password + "');";
